@@ -29,10 +29,10 @@ const LoginForm = () => {
         <div className="login-form">
             <h1>Hello there</h1>
             <form>
+                <label htmlFor="login">Username</label>
                 <input type="text" id="login" onChange={(e) => setLogin(loginChangeHandler(e))}/>
-                <label htmlFor="login"/>
+                <label htmlFor="password">Password</label>
                 <input type="password" id="password" onChange={(e) => setPassword(passwordChangeHandler(e))}/>
-                <label htmlFor="password"/>
                 <span />
                 <div>
                     <button onClick={clickHandler}>Sign in</button>

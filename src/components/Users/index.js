@@ -12,6 +12,24 @@ const inputValidator = (e) => {
     }
 }
 
+export const sortArray = (param = 'id', users) => {
+    return [...users].sort((a, b) => {
+        if (param === 'id') {
+            return a[param] - b[param];
+        }
+        else if (param === 'name') {
+            return (a[param] > b[param]) ? 1 : ((b[param] > a[param]) ? -1 : 0)
+        }
+        else if (param === 'city') {
+            return (a.address[param] > b.address[param]) ? 1 : ((b.address[param] > a.address[param]) ? -1 : 0)
+        }
+        else {
+            return (a[param].name > b[param].name) ? 1 : ((b[param].name > a[param].name) ? -1 : 0)
+        }
+    })
+}
+
+
 
 export const nameChangeHandler = (e, user) => {
     inputValidator(e)
