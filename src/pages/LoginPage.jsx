@@ -1,16 +1,15 @@
 import React from 'react';
 import LoginForm from "../components/LoginForm/LoginForm.jsx";
-import Header from "../components/Header/Header";
+import withHeader from "../HOC/withHeader";
 
 
 const LoginPage = () => {
     return (
         <div className="page">
-            <Header/>
             <LoginForm />
         </div>
     );
 };
 
 
-export default LoginPage;
+export default (withHeader(LoginPage));

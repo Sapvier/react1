@@ -8,6 +8,12 @@
     background-color: aliceblue;
 }
 
+.detailed-user-block h1 {
+    text-align: center;
+    margin: 0;
+}
+
+
 .detailed-user-block form {
     padding: 20px;
     display: flex;
@@ -28,6 +34,12 @@
     background-color: white;
     color: #7c1ddc;
     border: 1px #7c1ddc solid;
+}
+
+.detailed-user-block button:disabled {
+    background-color: #888888;
+    border: none;
+    cursor: not-allowed;
 }
 
 .detailed-user-block input {

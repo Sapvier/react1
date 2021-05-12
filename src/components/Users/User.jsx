@@ -18,7 +18,7 @@ const User = ({user}) => {
             <p>{user.company.name}</p>
         </div>
     );
-};
+}
 
 
 export default User;

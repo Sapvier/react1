@@ -1,3 +1,19 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    border: 1px solid #7c1ddc;
+    -webkit-text-fill-color: black;
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+
 .login-form {
     min-height: 200px;
     min-width: 350px;
@@ -6,6 +22,7 @@
     opacity: 80%;
     border-radius: 5px;
     box-shadow: 5px 5px 5px #888888;
+    padding: 20px;
 
     display: flex;
     flex-direction: column;
@@ -15,7 +32,7 @@
 
 .login-form form {
     width: 100%;
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,9 +44,17 @@
     height: 30px;
     border: 1px #8f73aa solid;
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     outline: none;
     padding: 8px;
+}
+.login-form span {
+    height: 13px;
+    font-size: 11px;
+    color: crimson;
+    margin-top: -15px;
+    align-self: flex-start;
+    margin-bottom: 5px;
 }
 
 .login-form button {
@@ -57,7 +82,6 @@
 
 .login-form h1 {
     margin: 0;
-    padding: 20px 20px 0 20px;
 }
 
 .login-form div {

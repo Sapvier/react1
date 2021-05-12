@@ -9,19 +9,26 @@ const UsersList = () => {
     const[users, setUsers] = useState([])
 
     useEffect(() => {
-        fetchRequest(process.env.REACT_APP_API_URL + '/users')
+        fetchRequest({
+            url: '/users',
+            method: 'GET',
+            body: null
+        })
             .then(r => r.json())
             .then(result => setUsers(result))
     }, []);
 
+
     return (
         <div className="users-wrapper">
-            <div className="users-wrapper-columns">
+            {users.length > 0 ? <div className="users-wrapper-columns">
                 <p>#</p>
                 <p>Name</p>
                 <p>City</p>
                 <p>Company</p>
             </div>
+            : <h2>Loading ...</h2>
+            }
             {users.map(item => <User key={uuidv4()} user={item}/>)}
         </div>
     );
