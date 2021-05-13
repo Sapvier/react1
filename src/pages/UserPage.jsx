@@ -1,13 +1,14 @@
 import React from 'react';
 import DetailedUser from "../components/Users/DetailedUser";
 import withHeader from "../HOC/withHeader";
+import {PageContainer} from "./styled";
 
 
 const UserPage = () => {
     return (
-        <div className="page">
+        <PageContainer>
             <DetailedUser />
-        </div>
+        </PageContainer>
     );
 };
 

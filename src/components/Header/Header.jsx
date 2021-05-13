@@ -1,24 +1,25 @@
 import React from 'react';
-import "./Header.css";
 import {useHistory} from "react-router-dom";
-import {isAuth, logger} from "../../services/logger/logger";
+import {getIsAuth, setIsAuth} from "../../services/logger/logger";
+import {Button} from "../../common/Button";
+import {NavBar} from "./styled";
 
 
 const Header = () => {
     let history = useHistory();
 
     const clickHandler = () => {
-        if (isAuth() === ' true') {
-            logger(false)
+        if (getIsAuth()) {
+            setIsAuth(false)
             history.push("/")
         } else history.push("/")
     }
 
     return (
-        <nav>
-            {isAuth() === ' true' ? <button onClick={clickHandler}>Sign out</button>
-                : <button onClick={clickHandler}>Sign in</button>}
-        </nav>
+        <NavBar>
+            {getIsAuth() === 'true' ? <Button onClick={clickHandler}>Sign out</Button>
+                : <Button onClick={clickHandler}>Sign in</Button>}
+        </NavBar>
     );
 };
 

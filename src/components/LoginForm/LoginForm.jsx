@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import "./LoginForm.css";
 import {useHistory} from "react-router-dom";
-import {logger} from "../../services/logger/logger";
+import {setIsAuth} from "../../services/logger/logger";
 import {loginChangeHandler, passwordChangeHandler} from "./index";
+import {Login} from "./styled";
+import {Button} from "../../common/Button";
 
 
 const LoginForm = () => {
@@ -11,35 +12,35 @@ const LoginForm = () => {
     let history = useHistory();
 
     useEffect(() => {
-        logger()
+        setIsAuth()
     }, []);
 
     const clickHandler = (e) => {
         e.preventDefault()
 
         if (login.toString() === process.env.REACT_APP_USER_LOGIN && password.toString() === process.env.REACT_APP_USER_PASSWORD) {
-            logger(true)
+            setIsAuth(true)
             history.push("/home")
         }
-        else e.target.parentElement.previousElementSibling.innerHTML = 'Wrong username or password'
+        else e.target.parentElement.previousElementSibling.innerHTML = 'Wrong credentials'
 
     }
 
     return (
-        <div className="login-form">
+        <Login>
             <h1>Hello there</h1>
             <form>
-                <label htmlFor="login">Username</label>
-                <input type="text" id="login" onChange={(e) => setLogin(loginChangeHandler(e))}/>
+                <label htmlFor="username">Username</label>
+                <input type="text" id="username" onChange={(e) => setLogin(loginChangeHandler(e))}/>
                 <label htmlFor="password">Password</label>
                 <input type="password" id="password" onChange={(e) => setPassword(passwordChangeHandler(e))}/>
                 <span />
                 <div>
-                    <button onClick={clickHandler}>Sign in</button>
+                    <Button onClick={clickHandler} align={`flex-start`}>Sign in</Button>
                     <a href="https://google.com/" target="_blank" rel="noreferrer">Need help?</a>
                 </div>
             </form>
-        </div>
+        </Login>
     );
 };
 

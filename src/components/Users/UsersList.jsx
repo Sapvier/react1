@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import User from "./User";
-import "./UsersList.css"
 import {fetchRequest} from "../../services/api/fetch";
 import {sortArray} from "./index";
+import {UserListWrapper} from "./styled";
+import User from "./User";
 
 
 const UsersList = () => {
     const[users, setUsers] = useState([])
     const[sorted, setSorted] = useState({
-        id: false,
+        id: true,
         name: false,
         city: false,
         company: false
@@ -36,19 +36,18 @@ const UsersList = () => {
 
 
     return (
-        <div className="users-wrapper">
-            {users.length > 0 ? <div className="users-wrapper-columns">
-                <p onClick={() => clickHandler('id')} >#</p>
-                <p onClick={() => clickHandler('name')} >Name</p>
-                <p onClick={() => clickHandler('city')}>City</p>
-                <p onClick={() => clickHandler('company')}>Company</p>
-            </div>
-            : <h2>Loading ...</h2>
-            }
-            {users.map(item => <User key={item.id} user={item}/>)}
-        </div>
+        users.length > 0 ? <UserListWrapper>
+                                <div>
+                                    <p onClick={() => clickHandler('id')} >#</p>
+                                    <p onClick={() => clickHandler('name')} >Name</p>
+                                    <p onClick={() => clickHandler('city')}>City</p>
+                                    <p onClick={() => clickHandler('company')}>Company</p>
+                                </div>
+                                {users.map(item => <User key={item.id} user={item}/>)}
+                           </UserListWrapper>
+                        : <h2>Loading ...</h2>
     );
-}
+};
 
 export default UsersList;
 

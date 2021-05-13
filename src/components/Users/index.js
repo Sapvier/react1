@@ -2,8 +2,8 @@ const inputValidator = (e) => {
 
     if (e.target.value.trim().length === 0) {
         e.target.previousElementSibling.innerText = 'Field is empty'
-        e.target.previousElementSibling.style.color = 'crimson'
-        e.target.style.border = "1px solid crimson"
+        e.target.previousElementSibling.style.color = '#B22222'
+        e.target.style.border = "1px solid #B22222"
     }
     else {
         e.target.previousElementSibling.removeAttribute('style')

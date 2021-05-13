@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect, Route} from "react-router-dom"
-import {isAuth} from "../services/logger/logger";
+import {getIsAuth} from "../services/logger/logger";
 
 
 function PrivateRoute({ children, ...rest }) {
@@ -8,7 +8,7 @@ function PrivateRoute({ children, ...rest }) {
         <Route
             {...rest}
             render={({ location }) =>
-                isAuth() ? (children)
+                getIsAuth() ? (children)
                        : (<Redirect to={{
                             pathname: "/",
                             state: { from: location }
