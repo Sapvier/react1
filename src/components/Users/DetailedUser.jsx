@@ -3,6 +3,7 @@ import {fetchRequest} from "../../services/api/fetch";
 import {getIsAuth} from "../../services/logger/logger";
 import {cityChangeHandler, companyChangeHandler, emailChangeHandler, nameChangeHandler} from "./index";
 import {DetailedStyledUser} from "./styled";
+import {Button} from "../../common/Button";
 
 
 const DetailedUser = () => {
@@ -66,7 +67,15 @@ const DetailedUser = () => {
                                onChange={(e) => setUser(companyChangeHandler(e, user))}
                                disabled={!isDisabled}
                                placeholder="Company"/>
-                        <button type="submit" disabled={!isDisabled}>Save</button>
+                        <Button type="submit" disabled={!isDisabled ? true
+                                                                    : user.name.length === 0
+                                                                    ? true
+                                                                    : user.email.length === 0
+                                                                    ? true
+                                                                    : user.address.city.length === 0
+                                                                    ? true
+                                                                    : user.company.name.length === 0
+                        } >Save</Button>
                     </form>
                 </DetailedStyledUser>
                 : <h2>Loading...</h2>

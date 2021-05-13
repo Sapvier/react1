@@ -72,34 +72,6 @@ export const DetailedStyledUser = styled.div`
     justify-content: space-between;
     align-items: center;
   }
-  
-  & button {
-    min-width: 120px;
-    height: 30px;
-    cursor: pointer;
-    background-color: #7c1ddc;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    box-shadow: 0 5px 10px 5px rgba(124,29,220, 0.15);
-  }
-  
-  & button:hover {
-    background-color: rgba(255,255,255, 0.3);
-    color: #7c1ddc;
-    border: 1px #7c1ddc solid;
-    transition: all .5s ease;
-  }
-  
-  & button:disabled {
-    box-shadow: 0 5px 10px rgba(0,0,0, 0.15);
-    background-color: #888888;
-    border: none;
-    cursor: not-allowed;
-  }
-  & button:disabled:hover {
-    color: white
-  }
 
   & input {
     width: 100%;

@@ -19,4 +19,13 @@ export const Button = styled.button`
     color: ${purple};
     transition: all .5s ease;
   }
+  &:disabled {
+    box-shadow: 0 5px 10px rgba(0,0,0, 0.15);
+    background-color: #888888;
+    border: none;
+    cursor: not-allowed;
+  }
+  &:disabled:hover {
+    color: white
+  }
   `;
