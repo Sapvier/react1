@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {fetchRequest} from "../../services/api/fetch";
+import {fetchRequest} from "../../utils/api/fetch";
 import {sortArray} from "./index";
 import {UserListWrapper} from "./styled";
 import User from "./User";
@@ -14,6 +14,13 @@ const UsersList = () => {
         company: false
     })
 
+    const unsorted = {
+        id: false,
+        name: false,
+        city: false,
+        company: false
+    }
+
     useEffect(() => {
         fetchRequest({
             url: '/users',
@@ -25,23 +32,28 @@ const UsersList = () => {
 
     }, []);
 
+
     const clickHandler = (param) => {
-        sorted[param]   ? setUsers(users.reverse())
-                        : setUsers(sortArray(param, users))
-
-        setSorted({
-            ...sorted,
-            [param]: !sorted[param]})
+        if(sorted[param]) {
+            setUsers(users.reverse())
+            setSorted({...unsorted})
+        }
+        else {
+            setUsers(sortArray(param, users))
+            setSorted({
+                ...unsorted,
+                [param]: true
+            })
+        }
     }
-
 
     return (
         users.length > 0 ? <UserListWrapper>
                                 <div>
-                                    <p onClick={() => clickHandler('id')} >#</p>
-                                    <p onClick={() => clickHandler('name')} >Name</p>
-                                    <p onClick={() => clickHandler('city')}>City</p>
-                                    <p onClick={() => clickHandler('company')}>Company</p>
+                                    <p onClick={() => clickHandler('id')} ># {sorted.id ? `⇧` : `⇩`}</p>
+                                    <p onClick={() => clickHandler('name')} >Name {sorted.name ? `⇧` : `⇩`}</p>
+                                    <p onClick={() => clickHandler('city')}>City {sorted.city ? `⇧` : `⇩`}</p>
+                                    <p onClick={() => clickHandler('company')}>Company {sorted.company ? `⇧` : `⇩`}</p>
                                 </div>
                                 {users.map(item => <User key={item.id} user={item}/>)}
                            </UserListWrapper>

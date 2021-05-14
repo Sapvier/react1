@@ -1,7 +1,7 @@
 import React from 'react';
-import DetailedUser from "../components/Users/DetailedUser";
-import withHeader from "../HOC/withHeader";
-import {PageContainer} from "./styled";
+import DetailedUser from "../../components/Users/DetailedUser";
+import withHeader from "../../HOC/withHeader";
+import {PageContainer} from "../../styles";
 
 
 const UserPage = () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect, Route} from "react-router-dom"
-import {getIsAuth} from "../services/logger/logger";
+import {getIsAuth} from "../utils/logger/logger";
 
 
 function PrivateRoute({ children, ...rest }) {

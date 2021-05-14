@@ -1,18 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import {fetchRequest} from "../../services/api/fetch";
-import {getIsAuth} from "../../services/logger/logger";
+import {fetchRequest} from "../../utils/api/fetch";
+import {getIsAuth} from "../../utils/logger/logger";
 import {cityChangeHandler, companyChangeHandler, emailChangeHandler, nameChangeHandler} from "./index";
 import {DetailedStyledUser} from "./styled";
-import {Button} from "../../common/Button";
+import {Button} from "../Button";
+import {useHistory} from "react-router-dom";
 
 
 const DetailedUser = () => {
     const [user, setUser] = useState({})
     const isDisabled = getIsAuth() == 'true'
+    const history = useHistory()
 
     useEffect(() => {
         fetchRequest({
-            url: window.location.pathname,
+            url: history.location.pathname,
             method: 'GET',
             body: null
         })
@@ -25,7 +27,7 @@ const DetailedUser = () => {
         e.preventDefault()
 
         fetchRequest({
-            url: window.location.pathname.slice(0, 6),
+            url: "/users",
             method: "POST",
             body: JSON.stringify(user)
         })

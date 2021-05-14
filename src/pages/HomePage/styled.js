@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const UserListWrapper = styled.div`
-  width: 90%;
+  width: 90%;  
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -10,6 +10,13 @@ export const UserListWrapper = styled.div`
   background-color: rgba(255,255,255, 0.15);
   border: 1px solid rgba(255,255,255, 0.2);
   border-radius: 5px;
+
+  @media (max-width: 800px) {
+    & {
+      padding: 10px;
+      width: 95%;
+    }
+  }
   
   & div:first-child {
     width: 100%;
